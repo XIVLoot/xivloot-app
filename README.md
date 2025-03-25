@@ -1,3 +1,4 @@
+![Docker Image Workflow](https://github.com/XIVLoot/xivloot-app/actions/workflows/docker-image.yml/badge.svg)<br>
 # Pushing the changes to production
 Open the terminal in the ffxiv-raid-loot-frontend folder and execute the following scripts below.
 Make sure you are logged into your docker hub account to be able to push to the docker hub repo or you will have permission errors.
