@@ -152,7 +152,7 @@ export class ItemBreakdownComponent {
           case 2:
             return "assets/raid/no_image.png";
           case 1:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_5_d.png";
           case 0:
             return "assets/raid/turn_1_d.png";
         }
@@ -161,7 +161,7 @@ export class ItemBreakdownComponent {
           case 2:
             return "assets/raid/no_image.png";
           case 1:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_6_d.png";
           case 0:
             return "assets/raid/turn_2_d.png";
         }
@@ -170,7 +170,7 @@ export class ItemBreakdownComponent {
           case 2:
             return "assets/raid/no_image.png";
           case 1:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_7_d.png";
           case 0:
             return "assets/raid/turn_3_d.png";
         }
@@ -179,7 +179,7 @@ export class ItemBreakdownComponent {
           case 2:
             return "assets/raid/no_image.png";
           case 1:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_8_d.png";
           case 0:
             return "assets/raid/turn_4_d.png";
         }

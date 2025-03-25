@@ -14,12 +14,12 @@
           <mat-select [(ngModel)]="Tier" [ngModelOptions]="{standalone: true}">
             <mat-option value="0">7.0</mat-option>
             <mat-option value="1" selected>7.2</mat-option>
-            <mat-option value="2">7.4</mat-option>
+            <!-- <mat-option value="2">7.4</mat-option> -->
           </mat-select>
         </mat-form-field>
 
         <mat-action-row>
-          <button mat-button (click)="AddStatic(staticName, Tier)" style="background-color: rgba(0, 255, 0, 0.5);">Create Static</button>
+          <button mat-button (click)="AddStatic(staticName, +Tier)" style="background-color: rgba(0, 255, 0, 0.5);">Create Static</button>
         </mat-action-row>
     </div>
     

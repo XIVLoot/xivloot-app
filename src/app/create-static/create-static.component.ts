@@ -13,7 +13,7 @@ export class CreateStaticComponent {
   // Asynchronous method to add a new static entity
   constructor(public http: HttpService, public data: DataService, public router: Router){}
   public staticName : string = "";
-  public Tier : number = 1;
+  public Tier : string = "1";
   async AddStatic(name: string, Tier : number) {
     // Making a POST request to the API to add a new static
     this.http.AddStatic(name, Tier)
