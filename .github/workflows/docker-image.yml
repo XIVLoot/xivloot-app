@@ -1,4 +1,4 @@
-name: Build and push website to docker hub
+name: Docker Image
 
 on:
   push:
