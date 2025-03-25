@@ -1,0 +1,149 @@
+<div style="display: flex; justify-content: center; align-items: center;flex-direction: column;">
+<!--
+  <div style="margin-bottom: 20px;width: 80%;">
+<mat-accordion style="width: 80%;margin-bottom:20px;" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Create Static
+      </mat-panel-title>
+      <mat-panel-description>
+        Click here to get started!
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field style="width: 100%;">
+      <mat-label>Static Name</mat-label>
+      <input matInput [(ngModel)]="staticName" placeholder="Enter static here" style="font-size: 20px;">
+
+    </mat-form-field>
+    <mat-action-row>
+      <button mat-button (click)="AddStatic(staticName)">Create Static</button>
+    </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+</div>-->
+
+<div>
+  <p style="background-color:rgba(255, 0, 0, 0.5);padding: 5px;border-radius: 5px;border:2px solid red;">
+    Having issues? Visit <a href="https://status.xivloot.com/">status.xivloot.com</a> to see if xivloot is having any known issues at the moment.
+  </p>
+</div>
+
+<div style="width: 98%;margin-left: 1%;height: 800px;max-width: 1350px;background-color: rgba(0, 0, 0, 0.4);border:3px solid rgba(0, 0, 0, 0.2);display: flex;flex-direction: column;">
+<div style="height: 49%;margin: 1%;display: flex;flex-direction: row;">
+  <div style="width: 46%;margin: 1%;padding:1%; background-color: rgba(0, 0, 0, 0.4);border-radius: 10px;border:2px solid rgba(255,255,255,0.7)">
+    <h1 style="text-align: center;">Welcome to XIVLoot.com!</h1>
+    <div style="width: 95%;margin-left: 2.5%;border-bottom: 2px solid black;margin-bottom: 10px;"></div>
+    <p>
+      XIVLoot is a Gear Management Website that allows you and your static to easily distribute gear during an active raid tier. 
+      This project was created by a group of raiders who were tired of the old spreadsheets and janky ways groups managed loot drops, 
+      we hope to offer a more streamlined approach to accomplish this goal.
+    </p>
+
+    <p>
+      This website is still in active development but is functional on it's core features. Please join our discord server to see feature announcements, 
+      report any bugs and let us know what works and doesn't work as we shape this website to be a home for statics.
+    </p>
+    <div style="background-color: rgba(255, 255, 255, 0.1);padding: 5px;width: 43%;border-radius: 10px;border: 2px solid rgba(0, 0, 0, 0.7);margin-left:25% ;">
+      <div style="margin-top: 10px;">Discord server : <a href="https://discord.gg/wQmVFKDD5M" target="_blank">
+        <img src="https://img.shields.io/discord/1263533776923787375?color=7289da&label=Discord&logo=discord" style="vertical-align: middle;" alt="Discord">
+      </a></div>
+      <p style="margin: 0;margin-top: 5px;">Support : <a href="mailto:support&#64;xivloot.com">support&#64;xivloot.com</a></p>
+      <div style="margin-top: 5px;">Official github repository : <a href="https://github.com/XIVLoot/XIVLoot" target="_blank">
+        <img src="assets/github_icon.png" style="width: 30px;height: 30px; vertical-align: middle;" alt="Github repository">
+      </a> </div>
+    </div>
+  </div>
+  <div style="width: 46%;margin: 1%;padding:1%; background-color: rgba(0, 0, 0, 0.4);border-radius: 10px;border:2px solid rgba(255,255,255,0.7)">
+    <h1 style="text-align: center;">
+      Your claimed players
+      <mat-icon matTooltip="{{HomeClaimPlayerToolTip}}" style="cursor: pointer;color:white;">help_outline</mat-icon>
+    </h1>
+    <div style="width: 95%;margin-left: 2.5%;border-bottom: 2px solid black;margin-bottom: 10px;"></div>
+
+    <div  style="width: 98%;margin-top: 10px;background-color: rgba(0, 0, 0, 0.4);border-radius: 10px;border:2px solid rgba(0,0,0,0.2);height: 80%;; overflow: auto;padding-bottom: 10px;padding-right: 5px;padding-left: 5px;">
+      <h1 style="text-align: center;" *ngIf="IsLoggedIn && claimedPlayerList.length==0">Start claiming players to see them here</h1>
+      <h1 style="text-align: center;" *ngIf="!IsLoggedIn">Login to claim player and see them here</h1>
+      <img *ngIf="IsLoading" src="assets/loading_gif.gif" style="width: 100px;height: 100px;margin-left: 40%;">
+      <div *ngFor="let playerInfo of claimedPlayerList" [style.backgroundColor]="getBackgroundColor(playerInfo.job)" style="border-radius: 5px;width: 98%;margin-left: 1%;margin-bottom: 8px;margin-top:5px; height: 60px;display: flex;flex-direction: row;">
+        <div style="width: 80%;display: flex;flex-direction: row;padding: 5px;">
+          <div style="width: 45%;display: flex;flex-direction: column;background-color: rgba(0, 0, 0, 0.2); border-radius: 5px;border:2px solid rgba(0, 0, 0, 0.2);padding-bottom: 1px;padding-left: 2px;">
+            <div style="display: flex;flex-direction: row;">
+              <p style="margin: 0;">{{playerInfo.name.slice(0, 15)}}</p>
+              <img src="assets/job/{{playerInfo.job}}.png" style="width: 25px;height: 25px;margin-left: 10px;">
+            </div>
+              <p>Static : {{playerInfo.staticName.slice(0, 15)}}</p>
+          </div>
+          <div style="height: 98%;;border-right: 2px solid rgba(0, 0, 0, 0.5);margin-right: 5px;margin-left: 5px;"></div>
+          <div style="width:300px;display: flex;flex-direction: column; background-color: rgba(0, 0, 0, 0.2); border-radius: 5px;border:2px solid rgba(0, 0, 0, 0.2);padding-right: 5px;padding-top: 3px;">
+            <div style="display: flex;flex-direction: row;justify-content: center;">
+              <div style="width:80px; display: flex;flex-direction: row;margin-left: 5px;">
+                <img src="assets/gear_tome_icon.png" style="width: 20px;height: 20px;">
+                <p style="height: 0px;">: {{playerInfo.cost.tomeCost}}</p>
+              </div>
+              <div style="width: 60px;display: flex;flex-direction: row;">
+                <img src="assets/twine_icon.png" style="width: 20px;height: 20px;">
+                <p style="height: 0px;"> : {{ playerInfo.cost.twineCost}}</p>
+              </div>
+              <div style="width: 60px;display: flex;flex-direction: row;">
+                <img src="assets/shine_icon.png" style="width: 20px;height: 20px;">
+                <p style="height: 0px;"> : {{playerInfo.cost.shineCost}}</p>
+              </div>
+            </div>
+            <div>
+              <p style="margin-left: 5px;">Avg ILevel (Current/BiS) : {{playerInfo.currentAverageItemLevel}}/{{playerInfo.bisAverageItemLevel}}</p>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <button style="margin-left:68%;" mat-raised-button (click)="EditPlayer(playerInfo.pId, playerInfo.staticUUID)">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+</div>
+
+<div style="height: 49%;margin: 1%;display: flex;flex-direction: row;">
+  <div style="width: 46%;margin: 1%;padding:1%; background-color: rgba(0, 0, 0, 0.4);border-radius: 10px;border:2px solid rgba(255,255,255,0.7)">
+    <h1 style="text-align: center;">News</h1>
+    <div style="width: 95%;margin-left: 2.5%;border-bottom: 2px solid black;margin-bottom: 10px;"></div>
+    <div>
+      <h2>XIVLoot v1.3.5</h2>
+      <div>
+        <p>Changelog : </p>
+        <ul>
+          <li>Added ability to add players to a static and delete players from a static.</li>
+          <li>Added ability to tag players as 'Alt'. These players appear differently in 'Raid Loot Breakdown' and are not included in the PGS system.</li>
+          <li>Fixed issue where turn 3 was shown to drop Head, Feet and Hands (they only drop from turn 2)</li>
+        </ul>
+      </div>
+      <p>View all previous changelogs on the discord server.</p>
+    </div>
+  </div>
+  <div style="width: 46%;margin: 1%;padding:1%; background-color: rgba(0, 0, 0, 0.4);border-radius: 10px;border:2px solid rgba(255,255,255,0.7)">
+    <h1 style="text-align: center;">How to use XIVLoot.com</h1>
+    <div style="width: 95%;margin-left: 2.5%;border-bottom: 2px solid black;margin-bottom: 10px;"></div>
+    <p>
+      1. Login via discord or create an account via the Login button
+    </p>
+    <p>
+      2. Create a Static <a routerLink="/create">here</a><br><span style="color:red;">Please Note: Anyone with your statics unique URL can view your statics page.</span><br>Once you Click the create button, please fill out the name and start populating members. 
+      We recommend claiming your character so it is locked to your account. 
+    </p>
+    <p>
+      3. Edit Players Names/ Jobs and Gear<br>We have provided tie-ins to Etro and XIVgear links to allow you to easily import your BIS lists.
+    </p>
+    <p>
+      4. You can modify your statics settings such as.. Player Gear Score (PGS), Lock Settings, etc..
+    </p>
+    <p>
+      If you have any questions regarding the use of this website, please stop by our discord where we will be happy to help.
+    </p>
+  </div>
+</div>
+</div>
+
+</div>
