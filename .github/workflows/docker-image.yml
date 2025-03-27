@@ -19,4 +19,4 @@ jobs:
     - name: Push website image to docker hub
       run: |
         docker login -u rickchinois -p ${{secrets.DOCKER_HUB_TOKEN}}
-        docker push rickchinois/xivloot-app:dev
+        docker push rickchinois/xivloot-app:latest
