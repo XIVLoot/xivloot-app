@@ -852,6 +852,16 @@ export class ImportGearDialog {
       var secondTry = this.bisLink.split("xivgear.app/?page=sl%7C");
       var uuid = firstTry.length > 1 ? firstTry[1] : secondTry[1];
       this.uuid = uuid;
+
+      // XIVGear url sometime specify a page index. 
+      // In order to avoir error where the url contains additional information
+      // we will only take the first 36 characters of the uuid which should
+      // always correspond to the actual uuid of the gearset.
+      if (uuid.length >= 36)
+      {
+          uuid = uuid.substring(0, 36);
+      }
+
       //uuid = "cd2c8bf4-1fa2-4197-88f5-f305b9a93bdf";
       this.httpClient.get("https://api.xivgear.app/shortlink/" + uuid).subscribe((data) => {
         if ('items' in data){
@@ -924,6 +934,11 @@ export class ImportGearDialog {
 
   ImportXIVGear(playerId : number, newXIV : string){
     this.isLoading = true;
+
+    // XIVGEAR url might have a page number at the end (&onlySetIndex=_index_) so we remove it.
+    
+
+
     this.http.changePlayerXIVGear(playerId, this.bisLink, this.selectedxivGearSet[1], this.useBis).pipe(
       catchError(err => {
         if (err.status === 401) {
