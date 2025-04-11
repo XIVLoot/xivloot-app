@@ -71,11 +71,14 @@ export class ItemBreakdownComponent {
     return this.curSelectTurnName;
   }
   
+  /**
+   * Function to return the background color of the drop needed in the itembreakdown component
+   * @param id - Player ID
+   * @param turn - Turn of the drop
+   * @returns - String (color in RGBA to use)
+   */
   getBackgroundColor(id : number, turn : string){
     var player = this.playerList.find(player => player.id === id);
-    if (player.IsAlt){
-      return 'rgba(255, 140, 0, 0.6)';
-    }
     var turnInt : number = 0;
     switch(turn){
       case "turn_1":
@@ -91,9 +94,30 @@ export class ItemBreakdownComponent {
         turnInt = 4;
         break;
     }
-    return this.playerList.find(player => player.id === id).IsLockedOutOfTurn(turnInt) ? 'rgba(255,0,0,0.4)' : 'rgba(0,255,0,0.2)'
+
+    // If locked red
+    if(player.IsLockedOutOfTurn(turnInt))
+    {
+      return 'rgba(255,0,0,0.4)'; 
+    } 
+    // If alt orange
+    else if (player.IsAlt)
+    {
+      return 'rgba(255, 140, 0, 0.6)';
+    }
+    // Else green
+    else
+    {
+      return 'rgba(0,255,0,0.2)';
+    }
   }
 
+/**
+ * Returns the Icon to use for the drop needed in the itembreakdown component
+ * @param id - Player id
+ * @param turn - Turn of the drop
+ * @returns 
+ */
   getLockIcon(id : number, turn : string){
     var turnInt : number = 0;
     switch(turn){
@@ -113,10 +137,20 @@ export class ItemBreakdownComponent {
     return this.playerList.find(player => player.id === id).IsLockedOutOfTurn(turnInt) ? 'lock_outline' : 'lock_open'
   }
   
+  /**
+ * Returns the job icon of the player
+ * @param id - Player id
+ * @returns 
+ */
   getJobIcon(id : number){
     return this.playerList.find(player => player.id === id).job;
   }
 
+  /**
+ * Returns the Coffer icon of the drop
+ * @param gear - Player id
+ * @returns 
+ */
   getCofferIcon(gear : string){
     switch(gear){
       case "Ring":
@@ -130,7 +164,9 @@ export class ItemBreakdownComponent {
     }
   }
 
-
+/**
+ * Returns the tier name
+ */
   getTierName()
   {
     switch(this.tier){
@@ -145,6 +181,10 @@ export class ItemBreakdownComponent {
     }
   }
 
+  /**
+ * RReturns the path to this turn's image.
+ * @param turn - Turn of the drop
+ */
   getTurnImage(turn : number){
     switch(turn){
       case 1:
@@ -185,7 +225,4 @@ export class ItemBreakdownComponent {
         }
   }
 }
-  /*
-    {turn1 : "Earrings" : [("Leonhard Euler", true). ("Harrow Levesque", true)]}
-  */
 }
