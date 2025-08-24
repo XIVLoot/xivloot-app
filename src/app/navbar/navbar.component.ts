@@ -272,7 +272,19 @@ export class LoginDialog {
     this.dialogRef.close(2); 
   }
 
-
+  forgotPassword()
+  {
+    this.http.ForgotPassword(this.loginEmail).subscribe((res : any) => {
+      this._snackBar.openFromComponent(PizzaPartyAnnotatedComponent, {
+        duration: 3500,
+        data: {
+          message: "Successfully sent reset password email.",
+          subMessage: "",
+          color : "green"
+        }
+      });
+    });
+  }
 
   async login(ShowSuccess : boolean){
 

@@ -694,7 +694,8 @@ constructor(public http: HttpClient, public data: DataService, private _snackBar
 
   SwapAltPlayer(player : Player){
     var url = `${this.api}Player/SetAltPlayer/${player.id}`;
-    return this.http.put(url, {}, {withCredentials:true}).pipe(catchError(error => {
+    return this.http.put(url, {}, {withCredentials:true}).pipe(
+      catchError(error => {
       this._snackBar.openFromComponent(PizzaPartyAnnotatedComponent, {
         duration: 8000,
         data: {
@@ -708,10 +709,30 @@ constructor(public http: HttpClient, public data: DataService, private _snackBar
     }));
   }
 
+  ForgotPassword(email : string)
+  {
+    var url = `${this.api}User/ForgotPassword`;
+    return this.http.post(url, {email : email}, {withCredentials:true}).pipe(catchError(error => {
+      return throwError(() => new Error('Failed to forgot password : ' + error.message));
+    }));
+  }
 
-
-
-  
+  ResetPassword(email : string, token : string, password : string)
+  {
+    var url = `${this.api}User/ResetPassword`;
+    return this.http.put(url, {email : email, token : token, password : password}, {withCredentials:true}).pipe(
+      catchError(error => {
+        this._snackBar.openFromComponent(PizzaPartyAnnotatedComponent, {
+          duration: 8000,
+          data: {
+            message: "Failed to reset password.",
+            subMessage: "Make sure you have claimed a player from this static and are logged in.",
+            color : "red"
+          }
+        });
+        return throwError(() => new Error('Failed to reset password : ' + error.message));
+      }));
+  }
 
 }
 

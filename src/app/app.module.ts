@@ -52,6 +52,7 @@ import { GearAcqHistorySingleComponent } from './gear-acq-history-single/gear-ac
 import { ItemBreakdownComponent } from './item-breakdown/item-breakdown.component';
 import { CreateStaticComponent } from './create-static/create-static.component';
 import { TomePlannerComponent } from './tome-planner/tome-planner.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { TomePlannerComponent } from './tome-planner/tome-planner.component';
     GearAcqHistorySingleComponent,
     ItemBreakdownComponent,
     CreateStaticComponent,
-    TomePlannerComponent
+    TomePlannerComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
