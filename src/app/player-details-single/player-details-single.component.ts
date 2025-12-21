@@ -87,7 +87,7 @@ export class PlayerDetailsSingleComponent {
       case 1:
         switch (this.tier){
           case 2:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_9_d.png";
           case 1:
             return "assets/raid/turn_5_d.png";
           case 0:
@@ -96,7 +96,7 @@ export class PlayerDetailsSingleComponent {
       case 2:
         switch (this.tier){
           case 2:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_10_d.png";
           case 1:
             return "assets/raid/turn_6_d.png";
           case 0:
@@ -105,7 +105,7 @@ export class PlayerDetailsSingleComponent {
       case 3:
         switch (this.tier){
           case 2:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_11_d.png";
           case 1:
             return "assets/raid/turn_7_d.png";
           case 0:
@@ -114,7 +114,7 @@ export class PlayerDetailsSingleComponent {
       case 4:
         switch (this.tier){
           case 2:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_12_d.png";
           case 1:
             return "assets/raid/turn_8_d.png";
           case 0:

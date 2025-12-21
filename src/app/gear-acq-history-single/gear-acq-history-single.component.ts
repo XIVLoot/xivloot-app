@@ -75,7 +75,7 @@ export class GearAcqHistorySingleComponent {
       case 1:
         switch (this.staticRef.Tier){
           case 2:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_9_d.png";
           case 1:
             return "assets/raid/turn_5_d.png";
           case 0:
@@ -84,7 +84,7 @@ export class GearAcqHistorySingleComponent {
       case 2:
         switch (this.staticRef.Tier){
           case 2:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_10_d.png";
           case 1:
             return "assets/raid/turn_6_d.png";
           case 0:
@@ -93,7 +93,7 @@ export class GearAcqHistorySingleComponent {
       case 3:
         switch (this.staticRef.Tier){
           case 2:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_11_d.png";
           case 1:
             return "assets/raid/turn_7_d.png";
           case 0:
@@ -102,7 +102,7 @@ export class GearAcqHistorySingleComponent {
       case 4:
         switch (this.staticRef.Tier){
           case 2:
-            return "assets/raid/no_image.png";
+            return "assets/raid/turn_12_d.png";
           case 1:
             return "assets/raid/turn_8_d.png";
           case 0:
