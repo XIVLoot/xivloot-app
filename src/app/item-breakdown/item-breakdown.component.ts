@@ -58,13 +58,13 @@ export class ItemBreakdownComponent {
       case 2:
           switch(this.curSelectedTurn){
             case "turn_1":
-              return"No Name";
+              return"AAC Heavyweight M9S";
             case "turn_2":
-              return "No Name";
+              return "AAC Heavyweight M10S";
             case "turn_3":
-              return "No Name";
+              return "AAC Heavyweight M11S";
             case "turn_4":
-              return "No Name";
+              return "AAC Heavyweight M12S";
             }
             break;
     }
