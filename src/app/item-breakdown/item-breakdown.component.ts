@@ -1,10 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { GearBreakdownToolTip } from '../tooltip';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 @Component({
   selector: 'app-item-breakdown',
   templateUrl: './item-breakdown.component.html',
-  styleUrl: './item-breakdown.component.css'
+  styleUrl: './item-breakdown.component.css',
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class ItemBreakdownComponent {
 

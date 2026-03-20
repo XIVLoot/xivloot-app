@@ -3,11 +3,14 @@ import { map } from 'rxjs';
 import { HttpService } from '../service/http.service';
 import { DataService } from '../service/data.service';
 import { Router } from '@angular/router';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 @Component({
   selector: 'app-create-static',
   templateUrl: './create-static.component.html',
-  styleUrl: './create-static.component.css'
+  styleUrl: './create-static.component.css',
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class CreateStaticComponent {
   // Asynchronous method to add a new static entity

@@ -27,6 +27,7 @@ import { MatInput } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 
 
@@ -34,7 +35,9 @@ import { MatTooltip } from '@angular/material/tooltip';
   selector: 'app-player-details-single',
   templateUrl: './player-details-single.component.html',
   styleUrl: './player-details-single.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class PlayerDetailsSingleComponent {
   JOB : string[] = ["BlackMage", "Summoner", "RedMage", "WhiteMage", "Astrologian", "Sage",

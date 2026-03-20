@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialog } from '../player-details-single/player-details-single.component';
 import { PizzaPartyAnnotatedComponent } from '../static-detail/static-detail.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 
 interface showInfo{
@@ -15,7 +16,9 @@ interface showInfo{
 @Component({
   selector: 'app-gear-acq-history-single',
   templateUrl: './gear-acq-history-single.component.html',
-  styleUrl: './gear-acq-history-single.component.css'
+  styleUrl: './gear-acq-history-single.component.css',
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class GearAcqHistorySingleComponent {
   @Input() week: any;

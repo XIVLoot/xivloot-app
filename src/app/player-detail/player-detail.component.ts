@@ -3,11 +3,14 @@ import { Player } from '../models/player';
 import { Gear } from '../models/gear';
 import { HttpService } from '../service/http.service'; // Importing the HttpService
 import { ActivatedRoute } from '@angular/router';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 @Component({
   selector: 'app-player-detail',
   templateUrl: './player-detail.component.html',
-  styleUrl: './player-detail.component.css'
+  styleUrl: './player-detail.component.css',
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class PlayerDetailComponent {
   JOB : string[] = ["BlackMage", "Summoner", "RedMage", "WhiteMage", "Astrologian", "Sage",

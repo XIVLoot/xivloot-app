@@ -3,11 +3,14 @@ import { Component } from '@angular/core';
 import { HttpService } from '../service/http.service';
 import { environment } from '../../environments/environments';
 import { CLIENT_SECRET } from './secret';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.css'
+  styleUrl: './auth.component.css',
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class AuthComponent {
 

@@ -11,11 +11,14 @@ import { MatButton } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { catchError, throwError } from 'rxjs';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class NavbarComponent {
 

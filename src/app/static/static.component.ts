@@ -7,12 +7,15 @@ import { Static } from '../models/static';
 import { environment } from '../../environments/environments';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PizzaPartyAnnotatedComponent } from '../static-detail/static-detail.component';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 // Component decorator with metadata for StaticComponent
 @Component({
   selector: 'app-static', // Selector name used in HTML to instantiate this component
   templateUrl: './static.component.html', // Path to the HTML template for this component
-  styleUrl: './static.component.css' // Path to the CSS for this component
+  styleUrl: './static.component.css', // Path to the CSS for this component
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 
 export class StaticComponent {

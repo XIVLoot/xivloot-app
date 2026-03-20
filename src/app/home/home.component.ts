@@ -6,11 +6,14 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { map } from 'rxjs';
 import { HomeClaimPlayerToolTip } from '../tooltip';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class HomeComponent {
   // Constructor with HttpClient and DataService injected

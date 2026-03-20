@@ -37,10 +37,7 @@ import {
   MatDialogTitle,
   MatDialogContent,
 } from '@angular/material/dialog';
-import {
-  MatSlideToggleModule,
-  _MatSlideToggleRequiredValidatorModule,
-} from '@angular/material/slide-toggle';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 // Animation Provider
@@ -54,7 +51,10 @@ import { CreateStaticComponent } from './create-static/create-static.component';
 import { TomePlannerComponent } from './tome-planner/tome-planner.component';
 
 @NgModule({
-  declarations: [
+  // Many of the app's components are defined as `standalone` by Angular,
+  // so they must be added to `imports` (and not `declarations`).
+  declarations: [],
+  imports: [
     AppComponent,
     HomeComponent,
     AbAuthComponent,
@@ -67,9 +67,7 @@ import { TomePlannerComponent } from './tome-planner/tome-planner.component';
     GearAcqHistorySingleComponent,
     ItemBreakdownComponent,
     CreateStaticComponent,
-    TomePlannerComponent
-  ],
-  imports: [
+    TomePlannerComponent,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

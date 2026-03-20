@@ -15,11 +15,14 @@ import { CheckWeekDoneToolTip, TotalTomestonesToolTip, StartingTomeToolTip, Dele
 } from '../tooltip';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 @Component({
   selector: 'app-tome-planner',
   templateUrl: './tome-planner.component.html',
-  styleUrl: './tome-planner.component.css'
+  styleUrl: './tome-planner.component.css',
+  standalone: true,
+  imports: [...STANDALONE_IMPORTS],
 })
 export class TomePlannerComponent {
 

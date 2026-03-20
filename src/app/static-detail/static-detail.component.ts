@@ -3,6 +3,10 @@ import { Static } from '../models/static'; // Importing the Static model
 import { HttpService } from '../service/http.service'; // Importing the HttpService
 import { ActivatedRoute } from '@angular/router'; // Importing ActivatedRoute to access route parameters
 import { PlayerDetailComponent } from '../player-detail/player-detail.component';
+import { PlayerDetailsSingleComponent } from '../player-details-single/player-details-single.component';
+import { GearAcqHistorySingleComponent } from '../gear-acq-history-single/gear-acq-history-single.component';
+import { ItemBreakdownComponent } from '../item-breakdown/item-breakdown.component';
+import { TomePlannerComponent } from '../tome-planner/tome-planner.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
@@ -43,6 +47,7 @@ import { gearAcquisitionToolTip, pgsSettingToolTipA, pgsSettingToolTipB, pgsSett
 } from '../tooltip';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ConfirmDialog } from '../player-details-single/player-details-single.component';
+import { STANDALONE_IMPORTS } from '../standalone-imports';
 
 interface PlayerPGS {
   name: string;
@@ -54,6 +59,8 @@ interface PlayerPGS {
   selector: 'app-static-detail', // Component selector used in HTML
   templateUrl: './static-detail.component.html', // HTML template for the component
   styleUrls: ['./static-detail.component.css'], // Stylesheet for the component
+  standalone: true,
+  imports: [PlayerDetailsSingleComponent, GearAcqHistorySingleComponent, ItemBreakdownComponent, TomePlannerComponent, ...STANDALONE_IMPORTS],
 })
 export class StaticDetailComponent implements OnInit {
 
