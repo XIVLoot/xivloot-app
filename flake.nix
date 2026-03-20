@@ -18,7 +18,7 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             # NodeJS and angular packages
-            nodejs_20
+            nodejs_24
             
             # Utilities
             git
@@ -31,10 +31,11 @@
             echo
 
             echo "Installing the depedencies..."
-            npm install -g @angular/cli
-            clear
             npm install
-            ng serve -o
+
+            serve() {
+              ng serve -o
+            }
           '';
         };
       });
